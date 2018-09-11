@@ -25,7 +25,7 @@ SECRET_KEY = '_+w9vswcowb0-12*o-s30v2ye0f0h9ur2_%8x0h)aaae1=!w5g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'xadmin',
     'crispy_forms',
     'future',
+    'fix',
 ]
 
 MIDDLEWARE = [
@@ -123,5 +124,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'static/'),
 )
+MEDIA_URL = '/upload/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'upload/')
+
+

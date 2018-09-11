@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from . import settings
+from django.conf.urls.static import static
 import xadmin
+from fix.views import *
+
 urlpatterns = [
     path('xadmin/', xadmin.site.urls),
+    path('fix/', FixView.as_view(), name='fix'),
 ]
+
+urlpatterns += static('upload/', document_root=settings.MEDIA_ROOT)

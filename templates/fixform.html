@@ -44,7 +44,7 @@
             <!--      Wizard container        -->
             <div class="wizard-container">
                 <div class="card wizard-card" data-color="azzure" id="wizard" >
-                    <form action="www.baidu.com" method="post">
+                    <form action="{% url 'fix' %}" method="post" enctype="multipart/form-data">
                 <!--        You can switch ' data-color="azzure" '  with one of the next bright colors: "blue", "green", "orange", "red"          -->
 
                     	<div class="wizard-header">
@@ -69,33 +69,33 @@
                                   <div class="col-sm-5 col-sm-offset-1">
                                       <div class="form-group">
                                         <label>你的姓名</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="姓名">
+                                        <input required type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="姓名">
                                       </div>
                                   </div>
                                   <div class="col-sm-5">
                                       <div class="form-group">
-                                        <label学院</label>
-                                        <select class="form-control">
+                                        <label>学院</label>
+                                        <select required class="form-control" name="college">
                                             <option disabled="" selected="">-你的学院-</option>
-                                            <option>信息学院</option>
-                                            <option>外国语学院</option>
-                                            <option>土建学院</option>
-                                            <option>教心学院</option>
-                                            <option>文学院</option>
-                                            <option>体育学院</option>
+                                            <option value="信息学院">信息学院</option>
+                                            <option value="外国语学院">外国语学院</option>
+                                            <option value="土建学院">土建学院</option>
+                                            <option value="教心学院">教心学院</option>
+                                            <option value="文学院">文学院</option>
+                                            <option value="体育学院">体育学院</option>
                                         </select>
                                       </div>
                                   </div>
                                   <div class="col-sm-5 col-sm-offset-1">
                                       <div class="form-group">
                                           <label>故障地点</label>
-                                         <input type="text" class="form-control" id="exampleInputEmail1" placeholder="故障地点">
+                                         <input required type="text" name="place" class="form-control" id="exampleInputEmail1" placeholder="故障地点">
                                       </div>
                                   </div>
                                <div class="col-sm-5 col-sm-offset-1">
                                       <div class="form-group">
                                           <label>故障物品</label>
-                                         <input type="text" class="form-control" id="exampleInputEmail1" placeholder="例如桌子，板凳">
+                                         <input required type="text" name="goods" class="form-control" id="exampleInputEmail1" placeholder="例如桌子，板凳">
                                       </div>
                                   </div>
                               </div>
@@ -108,20 +108,20 @@
                                      <div class="picture-container">
                                           <div class="picture">
                                               <img src="/static/img/fix.png" class="picture-src" id="wizardPicturePreview" title=""/>
-                                              <input type="file" id="wizard-picture">
+                                              <input required name="file1" type="file" id="wizard-picture">
                                           </div>
-                                          <h6>选择照片1</h6>
+                                          <h6>选择照片</h6>
                                       </div>
                                   </div>
-                                       <div class="col-sm-4 col-sm-offset-1">
-                                     <div class="picture-container">
-                                          <div class="picture">
-                                              <img src="/static/img/fix.png" class="picture-src" id="wizardPicturePreview" title=""/>
-                                              <input type="file" id="wizard-picture">
-                                          </div>
-                                          <h6>选择照片2</h6>
-                                      </div>
-                                  </div>
+{#                                       <div class="col-sm-4 col-sm-offset-1">#}
+{#                                     <div class="picture-container">#}
+{#                                          <div class="picture">#}
+{#                                              <img src="/static/img/fix.png" class="picture-src" id="wizardPicturePreview" title=""/>#}
+{#                                              <input name="file2" type="file" id="wizard-picture">#}
+{#                                          </div>#}
+{#                                          <h6>选择照片2</h6>#}
+{#                                      </div>#}
+{#                                  </div>#}
                                         
 
                                     </div>
@@ -133,7 +133,7 @@
                                     <div class="col-sm-6 col-sm-offset-1">
                                          <div class="form-group">
                                             <label>描述信息</label>
-                                            <textarea class="form-control" placeholder="" rows="9">
+                                            <textarea required name="detail" class="form-control" placeholder="" rows="9">
                                             </textarea>
                                           </div>
                                     </div>
@@ -149,13 +149,14 @@
                         <div class="wizard-footer">
                             	<div class="pull-right">
                                     <input type='button' class='btn btn-next btn-fill btn-info btn-wd btn-sm' name='next' value='下一条' />
-                                    <input type='submit' class='btn btn-finish btn-fill btn-info btn-wd btn-sm' name='finish' value='提交' />
+                                    <input type='submit' class='btn btn-finish btn-fill btn-info btn-wd btn-sm' value='提交' />
                                 </div>
                                 <div class="pull-left">
                                     <input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm' name='previous' value='上一条' />
                                 </div>
                                 <div class="clearfix"></div>
                         </div>
+                        {% csrf_token %}
                     </form>
                 </div>
             </div> <!-- wizard container -->
