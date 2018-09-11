@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" href="assets/img/favicon.png">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>报修系统</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+	<!--     Fonts and icons     -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
+
+	<!-- CSS Files -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="assets/css/gsdk-bootstrap-wizard.css" rel="stylesheet" />
+
+	<!-- CSS Just for demo purpose, don't include it in your project -->
+	<link href="assets/css/demo.css" rel="stylesheet" />
+
+</head>
+
+<body>
+<div class="image-container set-full-height" style="background-image: url('assets/img/wizard-boat.jpg')">
+    <!--   Creative Tim Branding   -->
+    <a href="#">
+         <div class="logo-container">
+            <div class="logo">
+                <img src="assets/img/new_logo.png">
+            </div>
+            <div class="brand">
+            填写你的报修信息
+            </div>
+        </div>
+    </a>
+
+    <!--   Big container   -->
+    <div class="container">
+        <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+
+            <!--      Wizard container        -->
+            <div class="wizard-container">
+                <div class="card wizard-card" data-color="azzure" id="wizard" >
+                    <form action="www.baidu.com" method="post">
+                <!--        You can switch ' data-color="azzure" '  with one of the next bright colors: "blue", "green", "orange", "red"          -->
+
+                    	<div class="wizard-header">
+                        	<h3>
+                        	   <b>填写</b> 你的报修单 <br>
+                        	   <small>Smart·School</small>
+                        	</h3>
+                    	</div>
+						<div class="wizard-navigation">
+							<ul>
+	                            <li><a href="#details" data-toggle="tab">你的信息</a></li>
+	                            <li><a href="#captain" data-toggle="tab">上传照片</a></li>
+	                            <li><a href="#description" data-toggle="tab">问题描述</a></li>
+	                        </ul>
+						</div>
+                        <div class="tab-content">
+                            <div class="tab-pane" id="details">
+                              <div class="row">
+                                  <div class="col-sm-12">
+                                    <h4 class="info-text"> 基本信息</h4>
+                                  </div>
+                                  <div class="col-sm-5 col-sm-offset-1">
+                                      <div class="form-group">
+                                        <label>你的姓名</label>
+                                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="姓名">
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-5">
+                                      <div class="form-group">
+                                        <label学院</label>
+                                        <select class="form-control">
+                                            <option disabled="" selected="">-你的学院-</option>
+                                            <option>信息学院</option>
+                                            <option>外国语学院</option>
+                                            <option>土建学院</option>
+                                            <option>教心学院</option>
+                                            <option>文学院</option>
+                                            <option>体育学院</option>
+                                        </select>
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-5 col-sm-offset-1">
+                                      <div class="form-group">
+                                          <label>故障地点</label>
+                                         <input type="text" class="form-control" id="exampleInputEmail1" placeholder="故障地点">
+                                      </div>
+                                  </div>
+                               <div class="col-sm-5 col-sm-offset-1">
+                                      <div class="form-group">
+                                          <label>故障物品</label>
+                                         <input type="text" class="form-control" id="exampleInputEmail1" placeholder="例如桌子，板凳">
+                                      </div>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="tab-pane" id="captain">
+                                <h4 class="info-text">上传照片</h4>
+                                <div class="row">
+                                    <div class="col-sm-10 col-sm-offset-1">
+                                           <div class="col-sm-4 col-sm-offset-1">
+                                     <div class="picture-container">
+                                          <div class="picture">
+                                              <img src="assets/img/fix.png" class="picture-src" id="wizardPicturePreview" title=""/>
+                                              <input type="file" id="wizard-picture">
+                                          </div>
+                                          <h6>选择照片1</h6>
+                                      </div>
+                                  </div>
+                                       <div class="col-sm-4 col-sm-offset-1">
+                                     <div class="picture-container">
+                                          <div class="picture">
+                                              <img src="assets/img/fix.png" class="picture-src" id="wizardPicturePreview" title=""/>
+                                              <input type="file" id="wizard-picture">
+                                          </div>
+                                          <h6>选择照片2</h6>
+                                      </div>
+                                  </div>
+                                        
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="description">
+                                <div class="row">
+                                    <h4 class="info-text"> 留下一个详细的描述 </h4>
+                                    <div class="col-sm-6 col-sm-offset-1">
+                                         <div class="form-group">
+                                            <label>描述信息</label>
+                                            <textarea class="form-control" placeholder="" rows="9">
+                                            </textarea>
+                                          </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                         <div class="form-group">
+                                            <label>例如：</label>
+                                            <p class="description">"103教室的第一排第二个电灯损坏"</p>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wizard-footer">
+                            	<div class="pull-right">
+                                    <input type='button' class='btn btn-next btn-fill btn-info btn-wd btn-sm' name='next' value='下一条' />
+                                    <input type='submit' class='btn btn-finish btn-fill btn-info btn-wd btn-sm' name='finish' value='提交' />
+                                </div>
+                                <div class="pull-left">
+                                    <input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm' name='previous' value='上一条' />
+                                </div>
+                                <div class="clearfix"></div>
+                        </div>
+                    </form>
+                </div>
+            </div> <!-- wizard container -->
+        </div>
+        </div> <!-- row -->
+    </div> <!--  big container -->
+
+    <div class="footer">
+        <div class="container">
+             <i class="fa fa-heart heart"></i> Copyright  <a href="#">智慧校园</a>Smart·School
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+
+	<!--   Core JS Files   -->
+	<script src="assets/js/jquery-2.2.4.min.js" type="text/javascript"></script>
+	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="assets/js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
+
+	<!--  Plugin for the Wizard -->
+	<script src="assets/js/gsdk-bootstrap-wizard.js"></script>
+
+	<!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
+	<script src="assets/js/jquery.validate.min.js"></script>
+
+</html>
