@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="apple-touch-icon" sizes="76x76" href="/static/img/apple-icon.png">
+	<link rel="icon" type="image/png" href="/static/img/favicon.png">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>smart</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+	<!--     Fonts and icons     -->
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
+
+	<!-- CSS Files -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/static/css/gsdk-bootstrap-wizard.css" rel="stylesheet" />
+
+	<!-- CSS Just for demo purpose, don't include it in your project -->
+	<link href="/static/css/demo.css" rel="stylesheet" />
+
+</head>
+
+<body>
+<div class="image-container set-full-height" style="background-image: url('/static/img/wizard-city.jpg')">
+    <!--   Creative Tim Branding   -->
+  
+
+    <!--   Big container   -->
+    <div class="container">
+        <div class="row">
+      
+            <!--      Wizard container        -->
+            <div class="wizard-container">
+                 <div class="col-sm-8 col-sm-offset-2">
+                 {% for i in res %}
+                       <div class="wizard-header">
+                          <h3>
+                             <b>我的</b>票券 <br>
+                             <small>Smart·School</small>
+                               
+                          </h3>
+
+                      </div>
+
+                    <div class="card wizard-card" data-color="green" id="wizard" style="background: " >
+                                   <div class="col-sm-12">
+                                    <h6 class="info-text">{{ i.name }}</h6>
+                                  </div>
+
+                             <div class="col-sm-12" >
+                                  <h6 class="info-text" style="text-align: left;"><b>·地点:&nbsp;&nbsp;&nbsp;&nbsp;</b>{{ i.place }}</h6>
+                                   <h6 class="info-text" style="text-align: left;"><b>·时间:&nbsp;&nbsp;&nbsp;&nbsp;</b><small>{{ i.times }}</small></h6>
+                                  
+                          </div>
+                          <div class="col-sm-12" style="border-bottom:dashed #ccc 1px;">
+                            
+                             <h6 class="info-text" style="text-align: left;"><b>·描述:&nbsp;&nbsp;&nbsp;&nbsp;</b><small>{{ i.detail }}</small></h6>
+                           
+                          </div>
+                       
+
+                            <div class="col-sm-6 col-xs-6" style="padding-top: 30px;">
+                              <img style="width:100px;" src="/upload/{{ i.image }}">
+
+                            </div>
+
+
+                           <div class="col-xs-6" style="margin-top: 60px;">
+                            <img src="/static/img/piao.png" style="width: 20px;"> 当前<b>状态</b>：<b>{% if i.is_sign == 0 %}未签到{% else %}已签到{% endif %}</b>
+                          </div>
+
+                        
+                     </div>             
+            
+                <br>
+                 {% endfor %}
+
+{#                   <div class="card wizard-card" data-color="green" id="wizard" style="background: ;" >   <img src="/static/img/die.png" style="position: absolute; z-index: 100;">#}
+{#                                   <div class="col-sm-12">#}
+{#                                    <h6 class="info-text"> XXX会议</h6>#}
+{#                                  </div>#}
+{##}
+{#                             <div class="col-sm-12" >#}
+{#                                  <h6 class="info-text" style="text-align: left;"><b>·地点:&nbsp;&nbsp;&nbsp;&nbsp;</b>第二报告厅</h6>#}
+{#                                   <h6 class="info-text" style="text-align: left;"><b>·时间:&nbsp;&nbsp;&nbsp;&nbsp;</b><small>2018-8-9</small></h6>#}
+{#                                  #}
+{#                          </div>#}
+{#                          <div class="col-sm-12" style="border-bottom:dashed #ccc 1px;">#}
+{#                            #}
+{#                             <h6 class="info-text" style="text-align: left;"><b>·描述:&nbsp;&nbsp;&nbsp;&nbsp;</b><small>巴拉巴拉巴拉巴拉吧啦巴拉巴拉巴拉巴拉吧巴拉巴拉巴拉巴拉吧巴拉巴拉巴拉巴拉吧巴拉巴拉巴拉巴拉吧</small></h6>#}
+{#                           #}
+{#                          </div>#}
+{#                       #}
+{##}
+{#                            <div class="col-sm-6 col-xs-6" style="padding-top: 30px;">#}
+{#                              <img style="width:100px;" src="/static/img/qr.png">#}
+{##}
+{#                            </div>#}
+{##}
+{##}
+{#                           <div class="col-xs-6" style="margin-top: 60px;">#}
+{#                            <img src="/static/img/piao.png" style="width: 20px;"> 当前<b>状态</b>：<b>已签到</b>#}
+{#                          </div>#}
+{#                       #}
+
+                        
+{#                     </div>             #}
+{#            <br>#}
+{#                  <div class="card wizard-card" data-color="green" id="wizard">#}
+{#                #}
+{#                </div>#}
+{#                 <br>#}
+{#                  <div class="card wizard-card" data-color="green" id="wizard">#}
+{#                #}
+{#                </div>#}
+{#                 <br>#}
+{#                  <div class="card wizard-card" data-color="green" id="wizard">#}
+{#                #}
+{#                </div>#}
+            </div> <!-- wizard container -->
+        </div>
+        </div> <!-- row -->
+    </div> <!--  big container -->
+
+    <div class="navbar-fixed-bottom">
+        
+            <div style="background-color: #fff;height: 50px;width: 100%;">
+              <div class="row">
+                    <div class="col-xs-6" style="background-color: #63B8FF;height: 50px;">
+                      
+                    <a href="{% url 'activity_list' %}?user_id={{ user_id }}">
+                      <div class="row"> <img src="/static/img/act.png" style="width:60px;margin-top: 10px;margin-left: 15px;" class="col-xs-4">
+                      <b style="color: #fff;margin-top: 15px;" class="col-xs-6">活动列表</b>
+                      </div>     
+                    </a>
+
+                    </div>
+
+                  <div class="col-xs-6" style="background-color: #fff;height: 50px;">
+                      
+                    <a href="{% url 'activity_mine' %}?user_id={{ user_id }}">
+                      <div class="row"> <img src="/static/img/me.png" style="width:60px;margin-top: 10px;margin-left: 15px;" class="col-xs-4">
+                      <b style="color: #63B8FF;margin-top: 15px;" class="col-xs-6">我的活动</b>
+                      </div>     
+                    </a>
+
+                    </div>
+
+                
+
+              </div>
+
+
+            </div>
+     
+    </div>
+</div>
+
+</body>
+
+	<!--   Core JS Files   -->
+	<script src="/static/js/jquery-2.2.4.min.js" type="text/javascript"></script>
+	<script src="/static/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="/static/js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
+
+	<!--  Plugin for the Wizard -->
+	<script src="/static/js/gsdk-bootstrap-wizard.js"></script>
+
+	<!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
+	<script src="/static/js/jquery.validate.min.js"></script>
+
+</html>
+

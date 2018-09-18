@@ -23,6 +23,12 @@ from fix.views import *
 urlpatterns = [
     path('xadmin/', xadmin.site.urls),
     path('fix/', FixView.as_view(), name='fix'),
+    path('activity/', ActivityView.as_view(), name='activity'),
+    path('activity_mine/', ActivityMineView.as_view(), name='activity_mine'),
+    path('activity_list/', ActivityListView.as_view(), name='activity_list'),
+    path('activity_ticket/', ActivityTicketView.as_view(), name='activity_ticket'),
+    path('get_ticket/', GetTicketView.as_view(), name='get_ticket'),  # 领票
+    path('check_ticket/', CheckTicketView.as_view(), name='check_ticket'),  # 验票
 ]
 
 urlpatterns += static('upload/', document_root=settings.MEDIA_ROOT)
