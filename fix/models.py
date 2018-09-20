@@ -7,6 +7,7 @@ class Fix(models.Model):
     name = models.CharField(verbose_name='姓名', max_length=50)
     college = models.CharField(verbose_name='学院', max_length=50)
     place = models.CharField(verbose_name='故障地点', max_length=100)
+    types = models.CharField(verbose_name='故障类型', max_length=100, default='')
     goods = models.CharField(verbose_name='故障物品', max_length=100)
     file1 = models.ImageField(upload_to='fix', max_length=100, verbose_name='照片')
     detail = models.CharField(verbose_name='描述信息', max_length=500)

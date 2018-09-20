@@ -16,7 +16,8 @@ class FixView(View):
         goods = request.POST.get('goods', '')
         file1 = request.FILES.get('file1', '')
         detail = request.POST.get('detail', '')
-        res = Fix(name=name, college=college, place=place, goods=goods, file1=file1, detail=detail)
+        types = request.POST.get('types', '')
+        res = Fix(name=name, college=college, place=place, goods=goods, file1=file1, detail=detail, types=types)
         res.save()
         return HttpResponse('<script>alert("提交成功！"); window.location.href="/fix/";</script>')
 
@@ -116,7 +117,7 @@ class GetTicketView(View):
             res = Ticket.objects.filter(person_id=user_id, activity_id=id)[0]
             import qrcode
             img = qrcode.make(res.id)
-            path = "upload\\qr\\"+str(res.id)+'_'+user_id+'.png'
+            path = "upload/qr/"+str(res.id)+'_'+user_id+'.png'
             img.save(path)
             res.image = "qr/"+str(res.id)+'_'+user_id+'.png'
             res.save()
@@ -126,7 +127,7 @@ class GetTicketView(View):
             return HttpResponse('<script>alert("恭喜你领票成功"); window.location.href="/activity_list/?user_id=%s"</script>' % user_id)
         except Exception as e:
             print(e)
-            return HttpResponse(HttpResponse('<script>alert("出错了，请重试");</script>'))
+            return HttpResponse(HttpResponse('<script>alert("出错了，请重试"+e);</script>'))
 
 
 # 验票api
