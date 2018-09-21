@@ -40,6 +40,9 @@
     </div>
 
     <div id="content-block" class="col-sm-11 col-md-10">
+    {% if needRedit %}
+        <iframe src = "{{ needRedit_url }}" id="mainFrame" frameborder="0" scrolling="no" width="100%" height="700"></iframe>
+      {% else %}
       {% block breadcrumbs %}
       <ul class="breadcrumb">
       {% if breadcrumbs %}
@@ -98,6 +101,7 @@
       {% block content %}
       {{ content }}
       {% endblock %}
+    {% endif %}
     </div>
   </div>
 

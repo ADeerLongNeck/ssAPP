@@ -2,6 +2,8 @@ from django.shortcuts import HttpResponse, render
 from django.views.generic.base import View
 from .models import *
 import json
+
+
 # Create your views here.
 
 
@@ -37,9 +39,11 @@ class ActivityView(View):
         person = request.POST.get('person', '')
         detail = request.POST.get('detail', '')
         times = request.POST.get('times', '')
-        res = Activity(name=name, person=person, types=types, place=place, detail=detail, sold_ticket=0, times=times, creator_id=creator_id)
+        res = Activity(name=name, person=person, types=types, place=place, detail=detail, sold_ticket=0, times=times,
+                       creator_id=creator_id)
         res.save()
-        return HttpResponse('<script>alert("提交成功！"); window.location.href="/activity_list/?user_id=%s"</script>' % creator_id)
+        return HttpResponse(
+            '<script>alert("提交成功！"); window.location.href="/activity_list/?user_id=%s"</script>' % creator_id)
 
 
 # 我的活动
@@ -111,20 +115,22 @@ class GetTicketView(View):
                     '<script>alert("来晚了，票已经被抢完了"); window.location.href="/activity_list/?user_id=%s"</script>' % user_id)
             check_res = Ticket.objects.filter(person_id=user_id, activity_id=id)
             if len(check_res) > 0:
-                return HttpResponse('<script>alert("您已经领过该票了"); window.location.href="/activity_list/?user_id=%s"</script>' % user_id)
+                return HttpResponse(
+                    '<script>alert("您已经领过该票了"); window.location.href="/activity_list/?user_id=%s"</script>' % user_id)
             res = Ticket(person_id=user_id, activity_id=id, is_sign=0)
             res.save()
             res = Ticket.objects.filter(person_id=user_id, activity_id=id)[0]
             import qrcode
             img = qrcode.make(res.id)
-            path = "upload/qr/"+str(res.id)+'_'+user_id+'.png'
+            path = "upload/qr/" + str(res.id) + '_' + user_id + '.png'
             img.save(path)
-            res.image = "qr/"+str(res.id)+'_'+user_id+'.png'
+            res.image = "qr/" + str(res.id) + '_' + user_id + '.png'
             res.save()
-            new_sold_ticket = activity.sold_ticket+1
+            new_sold_ticket = activity.sold_ticket + 1
             activity.sold_ticket = new_sold_ticket
             activity.save()
-            return HttpResponse('<script>alert("恭喜你领票成功"); window.location.href="/activity_list/?user_id=%s"</script>' % user_id)
+            return HttpResponse(
+                '<script>alert("恭喜你领票成功"); window.location.href="/activity_list/?user_id=%s"</script>' % user_id)
         except Exception as e:
             print(e)
             return HttpResponse(HttpResponse('<script>alert("出错了，请重试"+e);</script>'))
@@ -148,3 +154,18 @@ class CheckTicketView(View):
                 return HttpResponse(2)
         else:
             return HttpResponse(0)
+
+
+# chart
+class ChartView(View):
+    def get(self, request):
+        xianluguzhang = Fix.objects.filter(types='线路故障').count()
+        zuoyisunhuai = Fix.objects.filter(types='座椅损坏').count()
+        shebeiguzhang = Fix.objects.filter(types='设备故障').count()
+        menchuangsunhuai = Fix.objects.filter(types='门窗损坏').count()
+        dimiansunhuai = Fix.objects.filter(types='地面损坏').count()
+        gonggongsheshisunhuai = Fix.objects.filter(types='公共设施损坏').count()
+
+        return render(request, 'chart.html',
+                      {'xianluguzhang': xianluguzhang, 'zuoyisunhuai': zuoyisunhuai, 'shebeiguzhang': shebeiguzhang,
+                       'menchuangsunhuai': menchuangsunhuai, 'dimiansunhuai': dimiansunhuai, 'gonggongsheshisunhuai': gonggongsheshisunhuai})

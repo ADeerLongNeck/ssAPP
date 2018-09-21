@@ -29,6 +29,7 @@ urlpatterns = [
     path('activity_ticket/', ActivityTicketView.as_view(), name='activity_ticket'),
     path('get_ticket/', GetTicketView.as_view(), name='get_ticket'),  # 领票
     path('check_ticket/', CheckTicketView.as_view(), name='check_ticket'),  # 验票
+    path('chart/', ChartView.as_view()),
 ]
 
 urlpatterns += static('upload/', document_root=settings.MEDIA_ROOT)
