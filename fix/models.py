@@ -79,4 +79,17 @@ class Ticket(models.Model):
         return str(self.activity_id)
 
 
+class Index(models.Model):
+    title = models.CharField(verbose_name='题目', max_length=200)
+    content = models.CharField(verbose_name='文章内容', max_length=20000)
+    times = models.DateField(verbose_name='发表时间')
+    image = models.ImageField(upload_to='article', max_length=100, verbose_name='文章logo')
 
+    class Meta:
+        verbose_name = '文章信息'
+        verbose_name_plural = verbose_name
+        db_table = 'article'
+        app_label = "fix"
+
+    def __str__(self):
+        return str(self.title)

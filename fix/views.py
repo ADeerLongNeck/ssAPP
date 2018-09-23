@@ -169,3 +169,18 @@ class ChartView(View):
         return render(request, 'chart.html',
                       {'xianluguzhang': xianluguzhang, 'zuoyisunhuai': zuoyisunhuai, 'shebeiguzhang': shebeiguzhang,
                        'menchuangsunhuai': menchuangsunhuai, 'dimiansunhuai': dimiansunhuai, 'gonggongsheshisunhuai': gonggongsheshisunhuai})
+
+
+# Index
+class IndexView(View):
+    def get(self, request):
+        res = Index.objects.all()
+        return render(request, 'index.html', {'res': res})
+
+
+# content
+class ContentView(View):
+    def get(self, request):
+        id = request.GET.get('id')
+        res = Index.objects.get(id=id)
+        return render(request, 'content.html', {'res': res})

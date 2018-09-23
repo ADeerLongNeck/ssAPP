@@ -30,6 +30,8 @@ urlpatterns = [
     path('get_ticket/', GetTicketView.as_view(), name='get_ticket'),  # 领票
     path('check_ticket/', CheckTicketView.as_view(), name='check_ticket'),  # 验票
     path('chart/', ChartView.as_view()),
+    path('index/', IndexView.as_view(), name='index'),
+    path('content/', ContentView.as_view(), name='content'),
 ]
 
 urlpatterns += static('upload/', document_root=settings.MEDIA_ROOT)

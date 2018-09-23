@@ -21,7 +21,14 @@ class TicketAdmin(object):
     list_filter = ['activity_id', 'person_id', 'is_sign']
 
 
+class ArticleAdmin(object):
+    list_display = ['title', 'times']
+    search_display = ['title', 'times']
+    list_filter = ['title', 'times']
+
+
 xadmin.site.register(Fix, FixAdmin)
 xadmin.site.register(Activity, ActivityAdmin)
 xadmin.site.register(Ticket, TicketAdmin)
+xadmin.site.register(Index, ArticleAdmin)
 

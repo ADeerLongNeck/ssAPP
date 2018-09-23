@@ -456,10 +456,10 @@ class CommAdminView(BaseAdminView):
         for menu in nav_menu:
             check_selected(menu, self.request.path)
 
-        needRedit = False
-        if (self.request.get_full_path() == '/xadmin/'):
-            needRedit = True
-            needRedit_url = '/chart/'
+        # needRedit = False
+        # if (self.request.get_full_path() == '/xadmin/sasadsads'):
+        #     needRedit = True
+        #     needRedit_url = '/chart/'
 
         context.update({
             'menu_template': self.menu_template,
@@ -467,8 +467,8 @@ class CommAdminView(BaseAdminView):
             'site_title': self.site_title,
             'site_footer': self.site_footer,
             'breadcrumbs': self.get_breadcrumb(),
-            'needRedit': needRedit,
-            'needRedit_url': needRedit_url,
+            # 'needRedit': needRedit,
+            # 'needRedit_url': needRedit_url,
         })
 
         return context
